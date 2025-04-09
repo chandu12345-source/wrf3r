@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structural Design Dataset Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-6xl">
+        <h1 class="text-2xl font-bold mb-6 text-center">Structural Design Dataset Generator</h1>
+
+        <!-- Input Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="input-section">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">UDL (kN/m) Min</label>
+                <input type="number" id="udl_bc_min" value="20" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">UDL (kN/m) Max</label>
+                <input type="number" id="udl_bc_max" value="30" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Length BC (m) Min</label>
+                <input type="number" id="length_bc_min" value="4" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Length BC (m) Max</label>
+                <input type="number" id="length_bc_max" value="6" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Column Height (m) Min</label>
+                <input type="number" id="column_height_min" value="2.5" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Column Height (m) Max</label>
+                <input type="number" id="column_height_max" value="3.5" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Beam Width (mm) Min</label>
+                <input type="number" id="beam_width_min" value="250" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Beam Width (mm) Max</label>
+                <input type="number" id="beam_width_max" value="350" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Beam Depth (mm) Min</label>
+                <input type="number" id="beam_depth_min" value="400" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Beam Depth (mm) Max</label>
+                <input type="number" id="beam_depth_max" value="500" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Column Width (mm) Min</label>
+                <input type="number" id="column_width_min" value="250" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Column Width (mm) Max</label>
+                <input type="number" id="column_width_max" value="350" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Column Depth (mm) Min</label>
+                <input type="number" id="column_depth_min" value="250" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Column Depth (mm) Max</label>
+                <input type="number" id="column_depth_max" value="350" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">SBC (kN/m²) Min</label>
+                <input type="number" id="sbc_min" value="100" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">SBC (kN/m²) Max</label>
+                <input type="number" id="sbc_max" value="200" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Cement Price (₹/bag)</label>
+                <input type="number" id="cement_price" value="350" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Sand Price (₹/ton)</label>
+                <input type="number" id="sand_price" value="5000" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Aggregate Price (₹/ton)</label>
+                <input type="number" id="aggregate_price" value="3000" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Steel 415 Price (₹/kg)</label>
+                <input type="number" id="steel_415_price" value="60" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Steel 500 Price (₹/kg)</label>
+                <input type="number" id="steel_500_price" value="65" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Steel 550 Price (₹/kg)</label>
+                <input type="number" id="steel_550_price" value="70" step="any" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+        </div>
+
+        <!-- Generate Button -->
+        <div class="text-center mb-6">
+            <button id="generate-btn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Generate Dataset (1000 Samples)</button>
+        </div>
+
+        <!-- Download Link -->
+        <div id="download-section" class="text-center hidden">
+            <a id="download-link" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" download="structural_design_dataset.csv">Download Dataset</a>
+        </div>
+    </div>
+
+    <script>
+        const inputs = {
+            udl_bc_min: document.getElementById('udl_bc_min'),
+            udl_bc_max: document.getElementById('udl_bc_max'),
+            length_bc_min: document.getElementById('length_bc_min'),
+            length_bc_max: document.getElementById('length_bc_max'),
+            column_height_min: document.getElementById('column_height_min'),
+            column_height_max: document.getElementById('column_height_max'),
+            beam_width_min: document.getElementById('beam_width_min'),
+            beam_width_max: document.getElementById('beam_width_max'),
+            beam_depth_min: document.getElementById('beam_depth_min'),
+            beam_depth_max: document.getElementById('beam_depth_max'),
+            column_width_min: document.getElementById('column_width_min'),
+            column_width_max: document.getElementById('column_width_max'),
+            column_depth_min: document.getElementById('column_depth_min'),
+            column_depth_max: document.getElementById('column_depth_max'),
+            sbc_min: document.getElementById('sbc_min'),
+            sbc_max: document.getElementById('sbc_max'),
+            cement_price: document.getElementById('cement_price'),
+            sand_price: document.getElementById('sand_price'),
+            aggregate_price: document.getElementById('aggregate_price'),
+            steel_415_price: document.getElementById('steel_415_price'),
+            steel_500_price: document.getElementById('steel_500_price'),
+            steel_550_price: document.getElementById('steel_550_price')
+        };
+        const generateBtn = document.getElementById('generate-btn');
+        const downloadSection = document.getElementById('download-section');
+        const downloadLink = document.getElementById('download-link');
+
+        function round(value, decimals = 4) {
+            return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+        }
+
+        function newtonRaphson(func, dfunc, x0, tol = 1e-6, maxIter = 100) {
+            let x = x0;
+            for (let i = 0; i < maxIter; i++) {
+                let fx = func(x);
+                let dfx = dfunc(x);
+                if (Math.abs(fx) < tol) return x;
+                if (dfx === 0) return null;
+                x = x - fx / dfx;
+            }
+            return null;
+        }
+
+        const tau_table = {
+            0.15: { M15: 0.28, M20: 0.28, M25: 0.29, M30: 0.29, M35: 0.29, 'M40+': 0.30 },
+            0.25: { M15: 0.35, M20: 0.36, M25: 0.36, M30: 0.37, M35: 0.37, 'M40+': 0.38 },
+            0.50: { M15: 0.46, M20: 0.48, M25: 0.49, M30: 0.50, M35: 0.50, 'M40+': 0.51 },
+            0.75: { M15: 0.54, M20: 0.56, M25: 0.57, M30: 0.59, M35: 0.59, 'M40+': 0.60 },
+            1.00: { M15: 0.60, M20: 0.62, M25: 0.64, M30: 0.66, M35: 0.67, 'M40+': 0.68 },
+            1.25: { M15: 0.64, M20: 0.67, M25: 0.70, M30: 0.71, M35: 0.73, 'M40+': 0.74 },
+            1.50: { M15: 0.68, M20: 0.72, M25: 0.74, M30: 0.76, M35: 0.78, 'M40+': 0.79 },
+            1.75: { M15: 0.71, M20: 0.75, M25: 0.78, M30: 0.80, M35: 0.82, 'M40+': 0.84 },
+            2.00: { M15: 0.71, M20: 0.79, M25: 0.82, M30: 0.84, M35: 0.86, 'M40+': 0.88 },
+            2.25: { M15: 0.71, M20: 0.81, M25: 0.85, M30: 0.88, M35: 0.90, 'M40+': 0.92 },
+            2.50: { M15: 0.71, M20: 0.82, M25: 0.88, M30: 0.91, M35: 0.93, 'M40+': 0.95 },
+            2.75: { M15: 0.71, M20: 0.82, M25: 0.90, M30: 0.94, M35: 0.96, 'M40+': 0.98 },
+            3.00: { M15: 0.71, M20: 0.82, M25: 0.92, M30: 0.96, M35: 0.99, 'M40+': 1.01 }
+        };
+
+        function calculateShearStrength(Asbd_100, grade) {
+            const grade_key = grade < 40 ? `M${grade}` : 'M40+';
+            if (Asbd_100 <= 0.15) return tau_table[0.15][grade_key];
+            if (Asbd_100 >= 3.00) return tau_table[3.00][grade_key];
+            const sorted_keys = Object.keys(tau_table).map(Number).sort((a, b) => a - b);
+            for (let i = 1; i < sorted_keys.length; i++) {
+                const lower = sorted_keys[i - 1];
+                const upper = sorted_keys[i];
+                if (Asbd_100 > lower && Asbd_100 <= upper) {
+                    const tau_lower = tau_table[lower][grade_key];
+                    const tau_upper = tau_table[upper][grade_key];
+                    return round(tau_lower + (Asbd_100 - lower) * (tau_upper - tau_lower) / (upper - lower), 3);
+                }
+            }
+            return tau_table[3.00][grade_key];
+        }
+
+        function randomInRange(min, max) {
+            return min + Math.random() * (max - min);
+        }
+
+        function calculateDesign(fck, fy, params) {
+            const { udl_bc, length_bc, column_height, beam_width, beam_depth, column_width, column_depth, sbc,
+                    cement_price, sand_price, aggregate_price, steel_415_price, steel_500_price, steel_550_price } = params;
+
+            const MFbc = -(udl_bc * length_bc ** 2) / 12;
+            const MFcb = -MFbc;
+            const K = 4 / length_bc;
+            const sum_K_B = K + K;
+            const sum_K_C = K + K;
+            const DF_BA = K / sum_K_B;
+            const DF_BC = K / sum_K_B;
+            const DF_CB = K / sum_K_C;
+            const DF_CD = K / sum_K_C;
+
+            let AB = 0, BA = 0, BC = MFbc, CB = MFcb, CD = 0, DC = 0;
+            for (let i = 0; i < 6; i++) {
+                const BA_bal = -(BC + BA) * DF_BA;
+                const BC_bal = -(BC + BA) * DF_BC;
+                const CB_bal = -(CB + CD) * DF_CB;
+                const CD_bal = -(CB + CD) * DF_CD;
+                BA += BA_bal; BC += BC_bal; CB += CB_bal; CD += CD_bal;
+                AB += 0.5 * BA_bal; CB += 0.5 * BC_bal; BC += 0.5 * CB_bal; DC += 0.5 * CD_bal;
+            }
+
+            const Ha = (AB + BA) / column_height;
+            const Hb = Ha;
+            const Hc = (DC + CD) / column_height;
+            const Hd = Hc;
+            const Vb = udl_bc * length_bc * 0.5;
+            const Vc = Vb;
+            const Fbc = (udl_bc * length_bc * length_bc) / 8;
+            const M_support = BA;
+            const M_mid = Fbc - BA;
+            const Load_Pu = Vc;
+            const moment_in_column_Mu = BA;
+            const load_on_footing = Load_Pu + 1.5 * (column_width / 1000 * column_depth / 1000 * 25);
+            const moment_on_footing = AB;
+
+            const length_bc_mm = length_bc * 1000;
+            const Bf = (0.7 * length_bc_mm / 6) + (6 * 150) + beam_width;
+            const Mu_support = M_support * 1e6;
+            const b_support = beam_width;
+            const d_support = beam_depth - 40;
+            const func_support = (Ast) => 0.87 * fy * Ast * d_support * (1 - (Ast * fy) / (b_support * d_support * fck)) - Mu_support;
+            const dfunc_support = (Ast) => 0.87 * fy * d_support * (1 - (2 * Ast * fy) / (b_support * d_support * fck));
+            let Ast_support = newtonRaphson(func_support, dfunc_support, 1000) || 0;
+            let no_of_bars_support = Ast_support > 0 ? Ast_support / 201 : 0;
+            const no_of_bars_support_rounded = no_of_bars_support > 0 ? (no_of_bars_support % 1 >= 0.1 ? Math.ceil(no_of_bars_support) : Math.round(no_of_bars_support)) : 0;
+
+            const Mu_mid = M_mid * 1e6;
+            const b_mid = Bf;
+            const d_mid = beam_depth - 40;
+            const func_mid = (Ast) => 0.87 * fy * Ast * d_mid * (1 - (Ast * fy) / (b_mid * d_mid * fck)) - Mu_mid;
+            const dfunc_mid = (Ast) => 0.87 * fy * d_mid * (1 - (2 * Ast * fy) / (b_mid * d_mid * fck));
+            let Ast_mid = newtonRaphson(func_mid, dfunc_mid, 1000) || 0;
+            let no_of_bars_mid = Ast_mid > 0 ? Ast_mid / 201 : 0;
+            const no_of_bars_mid_rounded = no_of_bars_mid > 0 ? (no_of_bars_mid % 1 >= 0.1 ? Math.ceil(no_of_bars_mid) : Math.round(no_of_bars_mid)) : 0;
+
+            const Tv = (Load_Pu * 1000) / (beam_width * d_support);
+            const shear_reinforcement_ratio = (100 * no_of_bars_mid_rounded * 201) / (beam_width * d_support);
+            const shear_strength = calculateShearStrength(shear_reinforcement_ratio, fck);
+            const Asv = 100.53;
+            const Tc = shear_strength;
+            const vus = (Load_Pu * 1000) - (Tc * beam_width * d_support);
+            const Sv = vus > 0 ? (0.87 * fy * Asv * d_support) / vus : Infinity;
+            const min_spacing = Math.min(Sv, 0.7 * d_mid, 300);
+
+            const cutting_length_bar = (length_bc * 1000 + 40 * 16 * 2) / 1000;
+            const total_weight_top_bars = Math.round(cutting_length_bar * no_of_bars_support_rounded * (16 ** 2) / 162);
+            const total_weight_bottom_bars = Math.round(cutting_length_bar * no_of_bars_mid_rounded * (16 ** 2) / 162);
+            const beam_L = (beam_width / 1000) - 0.08;
+            const beam_B = (beam_depth / 1000) - 0.08;
+            const cutting_length_stirrups = 2 * (beam_L + beam_B) + 9 * 0.008 * 2;
+            const no_of_stirrups = Math.round((length_bc / 0.3) + 1);
+            const total_weight_stirrups = Math.round(cutting_length_stirrups * no_of_stirrups * (8 ** 2) / 162);
+            const total_weight_steel_beam_x4 = (total_weight_top_bars + total_weight_bottom_bars + total_weight_stirrups) * 4;
+
+            const volume = length_bc * (beam_width / 1000) * (beam_depth / 1000);
+            const dry_volume = volume * 1.54;
+            const total_ratio = 5.5;
+            const volume_cement = (1 / total_ratio) * dry_volume;
+            const volume_sand = (1.5 / total_ratio) * dry_volume;
+            const volume_aggregate = (3 / total_ratio) * dry_volume;
+            const weight_cement = 1440 * volume_cement;
+            const no_cement_bags = Math.round(weight_cement / 50);
+            const weight_sand = 1450 * volume_sand;
+            const sand_tons = weight_sand / 1000;
+            const weight_aggregate = 1500 * volume_aggregate;
+            const no_cement_bags_x4 = Math.round((weight_cement * 4) / 50);
+            const sand_tons_x4 = (weight_sand * 4) / 1000;
+            const weight_aggregate_x4 = weight_aggregate * 4;
+
+            const Ag = column_depth * column_depth;
+            const min_reinforcement = 0.008 * Ag;
+            const no_of_bars_column = Math.ceil(min_reinforcement / 201);
+            const min_spacing_ties = Math.min(column_width, 16 * 16, 300);
+
+            const length_longitudinal_bar_m = (column_height + 2 * (beam_depth / 1000) + 0.3 + (40 * 16) / 1000) - (10 + 10 + 60) / 1000;
+            const length_4_longitudinal_bars = Math.ceil(length_longitudinal_bar_m * 4);
+            const no_of_lateral_ties = Math.ceil(((length_longitudinal_bar_m * 1000 - (40 * 16 + 300)) / min_spacing_ties) + 1);
+            const a_mm = column_width - (2 * 40 + 2 * 8);
+            const b_mm = column_depth - (2 * 40 + 2 * 8);
+            const cutting_length_1_lateral_tie = 2 * (a_mm + b_mm) + 2 * (10 * 8) - 3 * (2 * 8);
+            const total_length_lateral_ties_m = Math.ceil((cutting_length_1_lateral_tie / 1000) * no_of_lateral_ties);
+            const weight_longitudinal_bars = (16 ** 2 / 162.2) * length_4_longitudinal_bars;
+            const weight_lateral_ties = (8 ** 2 / 162.2) * total_length_lateral_ties_m;
+            const total_weight_steel_column = weight_longitudinal_bars + weight_lateral_ties;
+            const gross_weight_steel_x4 = Math.round((total_weight_steel_column * 1.05) * 4);
+
+            const volume_column = column_height * (column_width / 1000) * (column_depth / 1000);
+            const dry_volume_column = volume_column * 1.54;
+            const volume_cement_column = (1 / total_ratio) * dry_volume_column;
+            const volume_sand_column = (1.5 / total_ratio) * dry_volume_column;
+            const volume_aggregate_column = (3 / total_ratio) * dry_volume_column;
+            const weight_cement_column = 1440 * volume_cement_column;
+            const no_cement_bags_column = Math.round(weight_cement_column / 50);
+            const weight_sand_column = 1450 * volume_sand_column;
+            const sand_tons_column = weight_sand_column / 1000;
+            const weight_aggregate_column = 1500 * volume_aggregate_column;
+            const no_cement_bags_column_x4 = Math.round((weight_cement_column * 4) / 50);
+            const sand_tons_column_x4 = (weight_sand_column * 4) / 1000;
+            const weight_aggregate_column_x4 = weight_aggregate_column * 4;
+
+            const P = load_on_footing * 1.1;
+            const Mu_footing = moment_on_footing;
+            const width_of_footing = 1.0;
+            const func_footing = (footing_L) => (P / (width_of_footing * footing_L)) + (6 * Mu_footing / (width_of_footing * footing_L * footing_L)) - sbc;
+            const dfunc_footing = (footing_L) => -P / (width_of_footing * footing_L * footing_L) - 12 * Mu_footing / (width_of_footing * footing_L * footing_L * footing_L);
+            let footing_L = newtonRaphson(func_footing, dfunc_footing, 1.0) || 0;
+            let L_1 = footing_L > 0 ? 0.5543 + footing_L : 0;
+            let sigma_max = L_1 > 0 ? (P / (width_of_footing * L_1)) + (6 * Mu_footing / (width_of_footing * L_1 * L_1)) : 0;
+            let sigma_min = L_1 > 0 ? (P / (width_of_footing * L_1)) - (6 * Mu_footing / (width_of_footing * L_1 * L_1)) : 0;
+            let effective_depth = 0, overall_depth_shear = 0;
+            if (L_1 > 0) {
+                const distance_without_column = (L_1 - column_width / 1000) * 0.5;
+                const X1 = (sigma_max - sigma_min) * distance_without_column + column_width / 1000;
+                const height_of_triangle = sigma_max - (X1 + sigma_min);
+                const Mx = (0.5 * distance_without_column * height_of_triangle * 0.66 * distance_without_column) + 
+                          (distance_without_column * (X1 + sigma_min) * 0.5 * distance_without_column);
+                const Mlim = 1.5 * Mx * 1e6;
+                const func_d = (d) => 0.138 * fck * 1000 * d * d - Mlim;
+                const dfunc_d = (d) => 0.138 * fck * 1000 * 2 * d;
+                effective_depth = newtonRaphson(func_d, dfunc_d, 100) || 0;
+                overall_depth_shear = effective_depth > 0 ? Math.round((effective_depth + 60) / 10) * 10 * 2 : 0;
+                effective_depth = overall_depth_shear > 0 ? overall_depth_shear - 60 : 0;
+            }
+
+            const Mu_reinforcement = Mu_footing * 1e6;
+            const func_ast = (Ast) => 0.87 * fy * Ast * effective_depth * (1 - (Ast * fy) / (1000 * effective_depth * fck)) - Mu_reinforcement;
+            const dfunc_ast = (Ast) => 0.87 * fy * effective_depth * (1 - (2 * Ast * fy) / (1000 * effective_depth * fck));
+            let Ast_footing = effective_depth > 0 ? newtonRaphson(func_ast, dfunc_ast, 1000) || 0 : 0;
+            const no_of_bars_footing = Ast_footing > 0 ? Math.ceil(Ast_footing / 78.54) : 0;
+            const spacing_footing = Ast_footing > 0 ? Math.round((1000 * 78.54) / Ast_footing) : 0;
+            let gross_weight_steel_footing = 0;
+            if (no_of_bars_footing > 0 && L_1 > 0) {
+                const effective_length_x = L_1 * 1000 - 120;
+                const effective_length_y = width_of_footing * 1000 - 120;
+                const no_of_bars_x = Math.ceil((effective_length_y / spacing_footing) + 1);
+                const no_of_bars_y = Math.ceil((effective_length_x / spacing_footing) + 1);
+                const cutting_length_bar_x = (effective_length_x + 2 * (overall_depth_shear - 120 - 40)) / 1000;
+                const cutting_length_bar_y = (effective_length_y + 2 * (overall_depth_shear - 120 - 40)) / 1000;
+                const total_length_x = Math.round(no_of_bars_x * cutting_length_bar_x);
+                const total_length_y = Math.round(no_of_bars_y * cutting_length_bar_y);
+                const weight_steel_x = (10 ** 2 / 162.2) * total_length_x;
+                const weight_steel_y = (10 ** 2 / 162.2) * total_length_y;
+                gross_weight_steel_footing = Math.round((weight_steel_x + weight_steel_y) * 1.05);
+            }
+
+            const volume_footing = L_1 * width_of_footing * (overall_depth_shear / 1000);
+            const dry_volume_footing = volume_footing * 1.54;
+            const volume_cement_footing = (1 / total_ratio) * dry_volume_footing;
+            const volume_sand_footing = (1.5 / total_ratio) * dry_volume_footing;
+            const volume_aggregate_footing = (3 / total_ratio) * dry_volume_footing;
+            const weight_cement_footing = 1440 * volume_cement_footing;
+            const no_cement_bags_footing = Math.round(weight_cement_footing / 50);
+            const weight_sand_footing = 1450 * volume_sand_footing;
+            const sand_tons_footing = weight_sand_footing / 1000;
+            const weight_aggregate_footing = 1500 * volume_aggregate_footing;
+            const no_cement_bags_footing_x4 = Math.round((weight_cement_footing * 4) / 50);
+            const sand_tons_footing_x4 = (weight_sand_footing * 4) / 1000;
+            const weight_aggregate_footing_x4 = weight_aggregate_footing * 4;
+
+            const steel_price = fy === 415 ? steel_415_price : fy === 500 ? steel_500_price : steel_550_price;
+            const total_steel_weight_x4 = total_weight_steel_beam_x4 + gross_weight_steel_x4 + (gross_weight_steel_footing * 4);
+            const steel_cost = total_steel_weight_x4 * steel_price;
+            const cement_cost = (no_cement_bags_x4 + no_cement_bags_column_x4 + no_cement_bags_footing_x4) * cement_price;
+            const sand_cost = (sand_tons_x4 + sand_tons_column_x4 + sand_tons_footing_x4) * sand_price;
+            const aggregate_cost = (weight_aggregate_x4 + weight_aggregate_column_x4 + weight_aggregate_footing_x4) / 1000 * aggregate_price;
+            const total_cost = steel_cost + cement_cost + sand_cost + aggregate_cost;
+
+            return {
+                udl_bc, length_bc, column_height, beam_width, beam_depth, column_width, column_depth, sbc,
+                fck, fy, total_cost, AB, BA, BC, CB, CD, DC, Ha, Hb, Hc, Hd, Vb, Vc, Fbc, M_support, M_mid,
+                Load_Pu, moment_in_column_Mu, load_on_footing, moment_on_footing, Bf, Ast_support, no_of_bars_support_rounded,
+                Ast_mid, no_of_bars_mid_rounded, Tv, shear_strength, Sv, min_spacing, total_weight_steel_beam_x4,
+                no_cement_bags_x4, sand_tons_x4, weight_aggregate_x4, Ag, min_reinforcement, no_of_bars_column,
+                min_spacing_ties, gross_weight_steel_x4, no_cement_bags_column_x4, sand_tons_column_x4,
+                weight_aggregate_column_x4, footing_L, L_1, sigma_max, sigma_min, effective_depth, overall_depth_shear,
+                Ast_footing, no_of_bars_footing, gross_weight_steel_footing, no_cement_bags_footing_x4,
+                sand_tons_footing_x4, weight_aggregate_footing_x4, total_steel_weight_x4
+            };
+        }
+
+        function generateDataset() {
+            const params = {};
+            for (let key in inputs) {
+                params[key] = parseFloat(inputs[key].value) || 0;
+            }
+
+            const combinations = [
+                { fck: 20, fy: 415 }, { fck: 20, fy: 500 }, { fck: 20, fy: 550 },
+                { fck: 25, fy: 415 }, { fck: 25, fy: 500 }, { fck: 25, fy: 550 },
+                { fck: 30, fy: 415 }, { fck: 30, fy: 500 }, { fck: 30, fy: 550 }
+            ];
+
+            const dataset = [];
+            for (let i = 0; i < 1000; i++) {
+                const randomParams = {
+                    udl_bc: randomInRange(params.udl_bc_min, params.udl_bc_max),
+                    length_bc: randomInRange(params.length_bc_min, params.length_bc_max),
+                    column_height: randomInRange(params.column_height_min, params.column_height_max),
+                    beam_width: randomInRange(params.beam_width_min, params.beam_width_max),
+                    beam_depth: randomInRange(params.beam_depth_min, params.beam_depth_max),
+                    column_width: randomInRange(params.column_width_min, params.column_width_max),
+                    column_depth: randomInRange(params.column_depth_min, params.column_depth_max),
+                    sbc: randomInRange(params.sbc_min, params.sbc_max),
+                    cement_price: params.cement_price,
+                    sand_price: params.sand_price,
+                    aggregate_price: params.aggregate_price,
+                    steel_415_price: params.steel_415_price,
+                    steel_500_price: params.steel_500_price,
+                    steel_550_price: params.steel_550_price
+                };
+
+                combinations.forEach(combo => {
+                    const result = calculateDesign(combo.fck, combo.fy, randomParams);
+                    dataset.push(result);
+                });
+            }
+
+            const headers = Object.keys(dataset[0]);
+            const csv = [
+                headers.join(','),
+                ...dataset.map(row => headers.map(header => row[header]).join(','))
+            ].join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            downloadLink.href = url;
+            downloadSection.classList.remove('hidden');
+        }
+
+        generateBtn.addEventListener('click', generateDataset);
+    </script>
+</body>
+</html>
